@@ -30,10 +30,11 @@ jobs:
       - name: Build
         run: |
           dpkg-buildpackage -us -uc -b -d
+          cp ../*.deb .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: deb
           path: |
-            ../*.deb
+            *.deb
